@@ -1,0 +1,417 @@
+[04-Jun-2025 16:07:10 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_custom_redirect_logic" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(13): do_action('template_redire...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#5 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[04-Jun-2025 16:07:10 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-04T16:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-04T16:0...', 1749053230)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1749053230, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[04-Jun-2025 16:07:19 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_custom_redirect_logic" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(13): do_action('template_redire...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#5 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[04-Jun-2025 16:07:19 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-04T16:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-04T16:0...', 1749053239)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1749053239, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[04-Jun-2025 16:07:32 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_custom_redirect_logic" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(13): do_action('template_redire...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#5 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[04-Jun-2025 16:07:32 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-04T16:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-04T16:0...', 1749053252)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1749053252, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[04-Jun-2025 16:07:37 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_custom_redirect_logic" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(13): do_action('template_redire...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#5 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[04-Jun-2025 16:07:37 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-04T16:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-04T16:0...', 1749053257)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1749053257, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[04-Jun-2025 16:08:09 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_custom_redirect_logic" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(13): do_action('template_redire...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#5 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[04-Jun-2025 16:08:09 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-04T16:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-04T16:0...', 1749053289)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1749053289, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[04-Jun-2025 16:08:58 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "handle_custom_redirect_logic" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(13): do_action('template_redire...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#5 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[04-Jun-2025 16:08:58 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-04T16:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-04T16:0...', 1749053338)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1749053338, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[04-Jun-2025 16:17:46 UTC] PHP Warning:  Undefined variable $order_id in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/custom-gateway/class-gateway.php on line 68
+[04-Jun-2025 16:18:07 UTC] PHP Warning:  Undefined variable $order_id in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/custom-gateway/class-gateway.php on line 68
+[04-Jun-2025 16:18:25 UTC] PHP Warning:  Undefined variable $order_id in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/custom-gateway/class-gateway.php on line 68
+[26-Jun-2025 17:28:09 UTC] Automatic updates starting...
+[26-Jun-2025 17:28:10 UTC]   Automatic plugin updates starting...
+[26-Jun-2025 17:28:10 UTC]   Automatic plugin updates complete.
+[26-Jun-2025 17:28:11 UTC] Automatic updates complete.
+[26-Jun-2025 17:28:24 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(254): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(437): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->is_writable()
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T17:2...')
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('plugin-woocomme...', '2025-06-26T17:2...', 1750958904)
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750958904, 'warning', 'Failed to initi...', Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(268): WC_Logger->log('warning', 'Failed to initi...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/integrations/maxmind-geolocation/class-wc-integration-maxmind-geolocation.php(172): WC_Logger->warning('Failed to initi...')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): WC_Integration_MaxMind_Geolocation->update_database()
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(565): WP_Hook->do_action(Array)
+#12 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-cron.php(191): do_action_ref_array('woocommerce_geo...', Array)
+#13 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 17:28:24 UTC] PHP Notice:  _wp_delete_all_temp_backups(): Could not access filesystem. in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/functions.php on line 6121
+[26-Jun-2025 18:03:33 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "add_my_custom_gateway_refund_fields" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:03:33 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:0...', 1750961013)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961013, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 18:04:26 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "add_my_custom_gateway_refund_fields" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:04:26 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:0...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:0...', 1750961066)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961066, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 18:12:10 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "add_custom_refund" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:12:10 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:1...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:1...', 1750961530)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961530, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 18:12:24 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "add_custom_refund" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:12:25 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:1...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:1...', 1750961545)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961545, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 18:13:19 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "add_my_custom_gateway_refund_fields" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:13:19 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:1...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:1...', 1750961599)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961599, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 18:13:46 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "add_my_custom_gateway_refund_fields" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:13:46 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:1...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:1...', 1750961626)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961626, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 18:13:49 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, function "add_my_custom_gateway_refund_fields" not found or invalid function name in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:13:50 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:1...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:1...', 1750961630)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961630, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[26-Jun-2025 18:14:30 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class My_Custom_Gateway does not have a method "add_my_custom_gateway_refund_fields" in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php(309): do_action('woocommerce_ord...', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-items.php(40): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/template.php(1456): WC_Meta_Box_Order_Items::output(NULL, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(506): do_meta_boxes(Object(WP_Screen), 'normal', Object(Automattic\WooCommerce\Admin\Overrides\Order))
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/Edit.php(410): Automattic\WooCommerce\Internal\Admin\Orders\Edit->render_meta_boxes()
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Orders/PageController.php(294): Automattic\WooCommerce\Internal\Admin\Orders\Edit->display()
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): Automattic\WooCommerce\Internal\Admin\Orders\PageController->output('')
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/admin.php(260): do_action('woocommerce_pag...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[26-Jun-2025 18:14:31 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-26T18:1...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-26T18:1...', 1750961671)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1750961671, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
