@@ -26,9 +26,8 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, [$this, 'process_admin_options']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
         add_action('woocommerce_checkout_before_customer_details', [$this, 'display_google_pay_button'], 1);
-        add_action('wp_ajax_my_custom_process_google_pay', [$this, 'process_google_pay']);
         add_action('woocommerce_checkout_before_customer_details', [$this, 'display_apple_pay_button'], 1);
-        
+
     }
     
     public function init_form_fields() {
@@ -87,6 +86,12 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
                     true
                 );
 
+
+                wp_localize_script('my-gpay-script', 'my_custom_gateway_params', [
+                    'nonce' => wp_create_nonce('gpay_token_nonce'),
+                ]);
+
+
                 wp_enqueue_script(
             'my-custom-apple-pay',
             plugins_url('assets/js/apple-pay.js', __FILE__),
@@ -132,48 +137,68 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
      
         <?php
     }
+        // ... rest of your existing methods ...
+}
+
+
+add_action('wp_ajax_nopriv_my_custom_process_google_pay', 'handle_google_pay_token');
+add_action('wp_ajax_my_custom_process_google_pay', 'handle_google_pay_token');
+
+function handle_google_pay_token() {
+    // Check nonce (uncomment and make sure it matches your JS)
+    // check_ajax_referer('gpay_token_nonce', 'security');
     
+    // Get and sanitize the raw POST data
+    $raw_post = file_get_contents('php://input');
+    $data = json_decode($raw_post, true);
     
-    public function process_google_pay() {
-        check_ajax_referer('my-custom-google-pay-nonce', 'nonce');
-        
-        try {
-            $payment_data = json_decode(stripslashes($_POST['payment_data']), true);
-            
-            // Validate payment data
-            if (empty($payment_data)) {
-                throw new Exception(__('Invalid payment data', 'my-custom-gateway'));
-            }
-            
-            // Process the payment with your payment processor
-            // This is where you'd integrate with your payment gateway API
-            $payment_result = $this->process_with_your_gateway($payment_data);
-            
-            if ($payment_result['success']) {
-                // Create order
-                $order = wc_create_order();
-                
-                // Add products, set address, etc.
-                // ...
-                
-                // Complete payment
-                $order->payment_complete($payment_result['transaction_id']);
-                $order->add_order_note(__('Payment completed via Google Pay', 'my-custom-gateway'));
-                
-                wp_send_json_success([
-                    'redirect' => $this->get_return_url($order),
-                ]);
-            } else {
-                throw new Exception($payment_result['message']);
-            }
-        } catch (Exception $e) {
-            wp_send_json_error([
-                'message' => $e->getMessage(),
-            ]);
-        }
+    if (empty($data)) {
+        wp_send_json_error('Invalid request data');
     }
     
-   
-    
-    // ... rest of your existing methods ...
+    $token = isset($data['token']) ? sanitize_text_field(json_encode($data['token'])) : '';
+    $order_id = isset($data['order_id']) ? absint($data['order_id']) : 0;
+
+    if (empty($token)) {
+        wp_send_json_error('Missing token');
+    }
+
+    // Process token (example)
+    $response = [
+        'status' => 'success',
+        'message' => 'Token received',
+        'token_received' => !empty($token)
+    ];
+
+    // Attach to order if needed
+    if ($order_id > 0) {
+        $order = wc_get_order($order_id);
+        if ($order) {
+            $order->add_order_note('Google Pay token received.');
+            $order->update_meta_data('_gpay_token', $token);
+            $order->save();
+        }
+    }
+
+    wp_send_json_success($response);
 }
+
+
+
+
+
+function enqueue_google_pay_script() {
+    wp_enqueue_script(
+        'my-gpay-script',
+        plugin_dir_url(__FILE__) . 'assets/js/checkout.js',
+        ['wp-element', 'wp-i18n', 'wc-blocks-checkout'],
+        '1.0',
+        true
+    );
+
+    wp_localize_script('my-gpay-script', 'my_custom_gateway_params', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('gpay_token_nonce'),
+    ]);
+}
+add_action('wp_enqueue_scripts', 'enqueue_google_pay_script');
