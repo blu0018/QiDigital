@@ -1,149 +1,179 @@
 <?php
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly
+    exit;
 }
 
 class My_Custom_Gateway extends WC_Payment_Gateway {
-
+    
     public function __construct() {
-        $this->id                 = 'my_custom_gateway';
-        $this->method_title       = __('My Custom Gateway', 'my-custom-gateway');
-        $this->method_description = __('Accept payments through My Custom Gateway.', 'my-custom-gateway');
-        $this->has_fields         = true;
-
-        // Supports array
+        $this->id = 'my_custom_gateway';
+        $this->method_title = __('My Custom Gateway', 'my-custom-gateway');
+        $this->method_description = __('Accept payments including Google Pay.', 'my-custom-gateway');
+        $this->has_fields = true;
+        
         $this->supports = [
             'products',
             'refunds',
-            'checkout-blocks', // Enable support for WooCommerce Checkout Blocks
+            'checkout-blocks',
+            'google_pay' // Our custom support flag
         ];
-
-        // Load settings
+        
         $this->init_form_fields();
         $this->init_settings();
-
-        // Get user-defined title
+        
         $this->title = $this->get_option('title', __('My Custom Gateway', 'my-custom-gateway'));
-
-        // Hook to save settings
+        
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, [$this, 'process_admin_options']);
-
-        // Optionally register a payment method type for Blocks (if needed)
-        add_filter('woocommerce_gateway_payment_method_type', [$this, 'register_block_type'], 10, 2);
-
+        add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+        add_action('woocommerce_checkout_before_customer_details', [$this, 'display_google_pay_button'], 1);
+        add_action('wp_ajax_my_custom_process_google_pay', [$this, 'process_google_pay']);
+        add_action('woocommerce_checkout_before_customer_details', [$this, 'display_apple_pay_button'], 1);
         
     }
-
-    public function register_block_type($type, $gateway_id) {
-        if ($gateway_id === $this->id) {
-            return 'custom'; // Or use 'card', 'redirect', etc.
-        }
-        return $type;
-    }
-
-    // Admin settings form fields
+    
     public function init_form_fields() {
         $this->form_fields = [
             'enabled' => [
-                'title'   => __('Enable/Disable', 'my-custom-gateway'),
-                'type'    => 'checkbox',
-                'label'   => __('Enable My Custom Gateway', 'my-custom-gateway'),
+                'title' => __('Enable/Disable', 'my-custom-gateway'),
+                'type' => 'checkbox',
+                'label' => __('Enable My Custom Gateway', 'my-custom-gateway'),
                 'default' => 'yes',
             ],
             'title' => [
-                'title'       => __('Title', 'my-custom-gateway'),
-                'type'        => 'text',
-                'description' => __('Title customers see during checkout.', 'my-custom-gateway'),
-                'default'     => __('My Custom Gateway', 'my-custom-gateway'),
-                'desc_tip'    => true,
+                'title' => __('Title', 'my-custom-gateway'),
+                'type' => 'text',
+                'default' => __('My Custom Gateway', 'my-custom-gateway'),
+                'desc_tip' => true,
+            ],
+            'google_pay_merchant_id' => [
+                'title' => __('Google Pay Merchant ID', 'my-custom-gateway'),
+                'type' => 'text',
+                'description' => __('Your Google Pay Merchant ID (from Google Pay Business Console)', 'my-custom-gateway'),
+            ],
+            'google_pay_merchant_name' => [
+                'title' => __('Merchant Name', 'my-custom-gateway'),
+                'type' => 'text',
+                'default' => get_bloginfo('name'),
+            ],
+            'google_pay_environment' => [
+                'title' => __('Environment', 'my-custom-gateway'),
+                'type' => 'select',
+                'options' => [
+                    'TEST' => __('Test', 'my-custom-gateway'),
+                    'PRODUCTION' => __('Production', 'my-custom-gateway'),
+                ],
+                'default' => 'TEST',
             ],
         ];
     }
+    
+    public function enqueue_scripts() {
+        if (is_checkout() || is_product() || is_cart()) {
+                // Load Google Pay JS library
+                wp_enqueue_script(
+                    'google-pay-js',
+                    'https://pay.google.com/gp/p/js/pay.js',
+                    [],
+                    null,
+                    true
+                );
+                
+                // Load our custom handler
+                wp_enqueue_script(
+                    'my-custom-google-pay',
+                    plugins_url('assets/js/my-custom-google-pay.js', __FILE__),
+                    ['jquery', 'google-pay-js'],
+                    WC_VERSION,
+                    true
+                );
 
-    // Checkout field UI
-    public function payment_fields() {
+                wp_enqueue_script(
+            'my-custom-apple-pay',
+            plugins_url('assets/js/apple-pay.js', __FILE__),
+            ['jquery'], // Removed 'apple-pay-js' as it's not needed (Apple Pay uses native API)
+            filemtime(plugin_dir_path(__FILE__) . 'assets/js/apple-pay.js'), // Better version handling
+            true
+        );
+                // Localize script data
+                wp_localize_script(
+                    'my-custom-google-pay',
+                    'my_custom_google_pay_params',
+                    [
+                        'merchant_id' => $this->get_option('google_pay_merchant_id'),
+                        'merchant_name' => $this->get_option('google_pay_merchant_name'),
+                        'environment' => $this->get_option('google_pay_environment', 'TEST'),
+                        'currency' => get_woocommerce_currency(),
+                        'country' => WC()->countries->get_base_country(),
+                        'ajax_url' => admin_url('admin-ajax.php'),
+                        'nonce' => wp_create_nonce('my-custom-google-pay-nonce'),
+                    ]
+                );
+        }
+    }
+    
+    public function display_google_pay_button() {
         ?>
-        <fieldset>
-            <p class="form-row form-row-wide">
-                <label for="custom_field"><?php esc_html_e('Custom Field', 'my-custom-gateway'); ?> <span class="required">*</span></label>
-                <input type="text" class="input-text" name="custom_field" id="custom_field" required />
-            </p>
-        </fieldset>
+        <div class="google_pay">
+            <div id="google_pay_btn"></div>
+        </div>
+        
+        
+        <script async
+        src="https://pay.google.com/gp/p/js/pay.js"
+        onload="onGooglePayLoaded()"></script>
         <?php
     }
 
-    // Payment processing logic
-    public function process_payment($order_id) {
-        $order = wc_get_order($order_id);
-
-        // Optional: Set order origin
-        if (! $order->get_meta('_wc_checkout_origin')) {
-            $order->update_meta_data('_wc_checkout_origin', 'custom-gateway');
-        }
-
-        // Complete the payment
-        $order->payment_complete();
-
-        // Add custom note
-        $order->add_order_note(__('Payment completed using My Custom Gateway.', 'my-custom-gateway'));
-
-        // Reduce stock and empty cart
-        wc_reduce_stock_levels($order_id);
-        WC()->cart->empty_cart();
-
-        // Save changes
-        $order->save();
-
-        // Return thank you redirect
-        return [
-            'result'   => 'success',
-            'redirect' => $this->get_return_url($order),
-        ];
+     public function display_apple_pay_button() {
+        ?>
+       <div id="apple-pay-button-container" style="margin: 15px 0; display: none;">
+        <button id="apple-pay-button" style="-webkit-appearance: -apple-pay-button; -apple-pay-button-type: buy; -apple-pay-button-style: black; height: 40px; width: 100%;"></button>
+        </div>
+     
+        <?php
     }
-
-
-    /**
-     * Add custom refund fields to the refund popup
-     */
-    public function add_custom_refund_fields($order_id) {
-      
-      
-    ?>
-
-
-
-    <div class="my-custom-gateway-refund-fields" style="padding: 10px; background: #f8f8f8; margin: 10px 0; border: 1px solid #ddd;">
-                    <h4><?php esc_html_e('My Custom Gateway Refund', 'my-custom-gateway'); ?></h4>
-                    <p>
-                        <label>
-                            <input type="checkbox" name="restock_refunded_items" checked="checked" />
-                            <?php esc_html_e('Restock refunded items', 'my-custom-gateway'); ?>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <?php esc_html_e('Reason for refund (optional):', 'my-custom-gateway'); ?><br />
-                            <textarea name="custom_gateway_refund_reason" style="width: 100%;"></textarea>
-                        </label>
-                    </p>
-                </div>
-      <style>
-
-        .button.refund-items {display:none}
-      </style>
-   
-
     
-
-    <?php
-      
+    
+    public function process_google_pay() {
+        check_ajax_referer('my-custom-google-pay-nonce', 'nonce');
+        
+        try {
+            $payment_data = json_decode(stripslashes($_POST['payment_data']), true);
+            
+            // Validate payment data
+            if (empty($payment_data)) {
+                throw new Exception(__('Invalid payment data', 'my-custom-gateway'));
+            }
+            
+            // Process the payment with your payment processor
+            // This is where you'd integrate with your payment gateway API
+            $payment_result = $this->process_with_your_gateway($payment_data);
+            
+            if ($payment_result['success']) {
+                // Create order
+                $order = wc_create_order();
+                
+                // Add products, set address, etc.
+                // ...
+                
+                // Complete payment
+                $order->payment_complete($payment_result['transaction_id']);
+                $order->add_order_note(__('Payment completed via Google Pay', 'my-custom-gateway'));
+                
+                wp_send_json_success([
+                    'redirect' => $this->get_return_url($order),
+                ]);
+            } else {
+                throw new Exception($payment_result['message']);
+            }
+        } catch (Exception $e) {
+            wp_send_json_error([
+                'message' => $e->getMessage(),
+            ]);
+        }
     }
+    
+   
+    
+    // ... rest of your existing methods ...
 }
-
-// Add custom refund fields to refund popup
-add_action('woocommerce_order_item_add_action_buttons', 'add_my_custom_gateway_refund_fields');
-function add_my_custom_gateway_refund_fields($order) {
-    $gateway = new My_Custom_Gateway();
-    $gateway->add_custom_refund_fields($order->get_id());
-}
-?>

@@ -64,13 +64,67 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
     public function payment_fields() {
         ?>
         <fieldset>
-            <p class="form-row form-row-wide">
-                <label for="custom_field"><?php esc_html_e('Custom Field', 'my-custom-gateway'); ?> <span class="required">*</span></label>
-                <input type="text" class="input-text" name="custom_field" id="custom_field" required />
-            </p>
+            <p><?php esc_html_e('Pay with Google Pay:', 'my-custom-gateway'); ?></p>
+            <div id="googlePayButton"></div>
+            <input type="hidden" name="gpay_token" id="gpay_token" />
         </fieldset>
+
+        <script>
+            const paymentsClient = new google.payments.api.PaymentsClient({ environment: 'TEST' });
+            const googlePayConfiguration = {
+                apiVersion: 2,
+                apiVersionMinor: 0,
+                allowedPaymentMethods: [{
+                    type: 'CARD',
+                    parameters: {
+                        allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                        allowedCardNetworks: ['MASTERCARD', 'VISA']
+                    },
+                    tokenizationSpecification: {
+                        type: 'PAYMENT_GATEWAY',
+                        parameters: {
+                            gateway: 'example', // Replace with 'stripe', 'razorpay', etc. in production
+                            gatewayMerchantId: 'exampleMerchantId'
+                        }
+                    }
+                }]
+            };
+
+            function onGooglePayLoaded() {
+                paymentsClient.isReadyToPay(googlePayConfiguration).then(function(response) {
+                    if (response.result) {
+                        const button = paymentsClient.createButton({
+                            onClick: onGooglePaymentButtonClicked
+                        });
+                        document.getElementById('googlePayButton').appendChild(button);
+                    }
+                });
+            }
+
+            function onGooglePaymentButtonClicked() {
+                paymentsClient.loadPaymentData({
+                    ...googlePayConfiguration,
+                    transactionInfo: {
+                        totalPriceStatus: 'FINAL',
+                        totalPrice: '10.00',
+                        currencyCode: 'USD'
+                        },
+                    merchantInfo: {
+                        merchantName: 'Demo Merchant'
+                    }
+                }).then(function(paymentData) {
+                    // Pass token to server
+                    document.getElementById('gpay_token').value = JSON.stringify(paymentData.paymentMethodData.tokenizationData);
+                }).catch(function(err) {
+                    console.error(err);
+                });
+            }
+        </script>
+
+        <script async src="https://pay.google.com/gp/p/js/pay.js" onload="onGooglePayLoaded()"></script>
         <?php
     }
+
 
     // Payment processing logic
     public function process_payment($order_id) {
@@ -109,9 +163,6 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
       
       
     ?>
-
-
-
     <div class="my-custom-gateway-refund-fields" style="padding: 10px; background: #f8f8f8; margin: 10px 0; border: 1px solid #ddd;">
                     <h4><?php esc_html_e('My Custom Gateway Refund', 'my-custom-gateway'); ?></h4>
                     <p>
