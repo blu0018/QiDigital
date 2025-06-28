@@ -1402,3 +1402,100 @@ Stack trace:
 #9 [internal function]: WooCommerce->log_errors()
 #10 {main}
   thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[28-Jun-2025 08:35:27 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:35:27 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:35:31 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:35:31 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:37:31 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:37:32 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:44:26 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:44:27 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:44:38 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:44:39 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:45:56 UTC] PHP Fatal error:  Uncaught TypeError: call_user_func_array(): Argument #1 ($callback) must be a valid callback, class My_Custom_Gateway does not have a method "display_google_pay_button" in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php:324
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters('', Array)
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/templates/checkout/form-checkout.php(36): do_action('woocommerce_che...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/wc-core-functions.php(346): include('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-checkout.php(373): wc_get_template('checkout/form-c...', Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/shortcodes/class-wc-shortcode-checkout.php(70): WC_Shortcode_Checkout::checkout()
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Blocks/BlockTypes/ClassicShortcode.php(113): WC_Shortcode_Checkout::output(Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Blocks/BlockTypes/ClassicShortcode.php(57): Automattic\WooCommerce\Blocks\BlockTypes\ClassicShortcode->render_checkout(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Blocks/BlockTypes/AbstractBlock.php(98): Automattic\WooCommerce\Blocks\BlockTypes\ClassicShortcode->render(Array, '', Object(WP_Block))
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-block.php(586): Automattic\WooCommerce\Blocks\BlockTypes\AbstractBlock->render_callback(Array, '', Object(WP_Block))
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/blocks.php(2358): WP_Block->render()
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/blocks.php(2410): render_block(Array)
+#12 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): do_blocks('<!-- wp:woocomm...')
+#13 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(205): WP_Hook->apply_filters('<!-- wp:woocomm...', Array)
+#14 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/blocks/post-content.php(50): apply_filters('the_content', '<!-- wp:woocomm...')
+#15 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-block.php(586): render_block_core_post_content(Array, '<!-- wp:woocomm...', Object(WP_Block))
+#16 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-block.php(566): WP_Block->render()
+#17 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-block.php(566): WP_Block->render()
+#18 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/blocks.php(2358): WP_Block->render()
+#19 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/blocks.php(2410): render_block(Array)
+#20 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/block-template.php(294): do_blocks('<!-- wp:templat...')
+#21 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-canvas.php(12): get_the_block_template_html()
+#22 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(106): include('/Applications/X...')
+#23 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#24 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#25 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php on line 324
+[28-Jun-2025 08:45:56 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-28T08:4...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-28T08:4...', 1751100356)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1751100356, 'critical', 'Uncaught TypeEr...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught TypeEr...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught TypeEr...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[28-Jun-2025 08:47:28 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:47:29 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:48:00 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:48:01 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:48:02 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:48:02 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:48:08 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:48:09 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:49:06 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:49:07 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:49:07 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 08:49:07 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/kses.php on line 1807
+[28-Jun-2025 09:33:39 UTC] PHP Fatal error:  Uncaught Error: Using $this when not in object context in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/custom-gateway/class-gateway.php:287
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): enqueue_google_pay_script('')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/script-loader.php(2299): do_action('wp_enqueue_scri...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(324): wp_enqueue_scripts('')
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters(NULL, Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/plugin.php(517): WP_Hook->do_action(Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/general-template.php(3192): do_action('wp_head')
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-canvas.php(17): wp_head()
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/template-loader.php(106): include('/Applications/X...')
+#10 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-blog-header.php(19): require_once('/Applications/X...')
+#11 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/index.php(17): require('/Applications/X...')
+#12 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/custom-gateway/class-gateway.php on line 287
+[28-Jun-2025 09:33:39 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-06-28T09:3...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-06-28T09:3...', 1751103219)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1751103219, 'critical', 'Uncaught Error:...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'Uncaught Error:...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('Uncaught Error:...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438

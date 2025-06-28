@@ -1,100 +1,102 @@
-function getGooglePaymentsClient() {
-      return new google.payments.api.PaymentsClient({
-        environment: 'TEST',
-      });
-    }
+(function ($) {
+    const environment = window.my_custom_google_pay_params?.environment || 'TEST';
 
-    function onGooglePayLoaded() {
-      const paymentsClient = getGooglePaymentsClient();
-      addGooglePayButton();
-    }
+    function renderGooglePayButton() {
+        const container = document.getElementById('google_pay_btn');
+        if (!container) return;
 
-    function addGooglePayButton() {
-      const paymentsClient = getGooglePaymentsClient();
+        const paymentsClient = new google.payments.api.PaymentsClient({ environment });
 
-      const buttonOptions = (google.payments.api.ButtonOptions = {
-        onClick: onGooglePaymentButtonClicked,
-      });
+        const button = paymentsClient.createButton({
+            onClick: onGooglePaymentButtonClicked
+        });
 
-      console.log(JSON.stringify(buttonOptions, null, 2));
-
-      const button = paymentsClient.createButton(buttonOptions);
-
-      let container = document.getElementById('google_pay_btn');
-      if (container.firstChild) {
-        container.replaceChild(button, container.firstChild);
-      } else {
+        container.innerHTML = ''; // Clear previous content
         container.appendChild(button);
-      }
-    }
-
-    function getRequest() {
-      const allowedCardNetworks = [
-        'AMEX',
-        'DISCOVER',
-        'INTERAC',
-        'JCB',
-        'MASTERCARD',
-        'VISA',
-      ];
-
-      // also called IsReadyToPayRequest in the docs
-      googlePayConfig = {
-        apiVersion: 2,
-        apiVersionMinor: 0,
-      };
-      paymentDataRequest = Object.assign({}, googlePayConfig);
-      // currency code is ISO 4217 code
-      // country code is ISO 3166-1 alpha-2 code for where the transaction is processed
-      paymentDataRequest.transactionInfo = {
-        totalPriceStatus: 'FINAL',
-        totalPrice: '0', // will change this later
-        currencyCode: 'USD',
-        countryCode: 'US',
-      };
-      paymentDataRequest.merchantInfo = {
-        merchantId: 'BCR2DN7TZCF4PVLR',
-        merchantName: 'Qidigital',
-      };
-      const tokenizationSpec = {
-        type: 'PAYMENT_GATEWAY',
-        parameters: {
-          gateway: 'cardconnect',
-          gatewayMerchantId: 'gatewayMerchantId',
-        },
-      };
-      const cardPaymentMethod = {
-        type: 'CARD',
-        tokenizationSpecification: tokenizationSpec,
-        parameters: {
-          allowedCardNetworks: allowedCardNetworks,
-          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-          //billingAddressParamters: {
-          //    format: "FULL",
-          //    phoneNumberRequired: false
-          //}
-        },
-      };
-      paymentDataRequest.shippingAddressRequired = false;
-      paymentDataRequest.allowedPaymentMethods = [cardPaymentMethod];
-      return paymentDataRequest;
     }
 
     function onGooglePaymentButtonClicked() {
-      const paymentDataRequest = getRequest();
-      console.log(JSON.stringify(paymentDataRequest, null, 2));
-      //paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+        const params = window.my_custom_google_pay_params;
 
-      const paymentsClient = getGooglePaymentsClient();
-      paymentsClient.loadPaymentData(paymentDataRequest).then((paymentData) => {
-          processPayment(paymentData);
-    	}).catch((error) => {
-        // errors will be displayed in the Google Pay window
-        console.log(error);
-        return;
-    	});
+        const paymentDataRequest = {
+            apiVersion: 2,
+            apiVersionMinor: 0,
+            allowedPaymentMethods: [{
+                type: 'CARD',
+                parameters: {
+                    allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                    allowedCardNetworks: ['VISA', 'MASTERCARD', 'AMEX']
+                },
+                tokenizationSpecification: {
+                    type: 'PAYMENT_GATEWAY',
+                    parameters: {
+                        gateway: 'cardconnect',
+                        gatewayMerchantId: 'gatewayMerchantId'
+                    }
+                }
+            }],
+            merchantInfo: {
+                merchantId: params?.merchant_id || '',
+                merchantName: params?.merchant_name || ''
+            },
+            transactionInfo: {
+                totalPriceStatus: 'FINAL',
+                totalPrice: '0.01',
+                currencyCode: params?.currency || 'USD',
+                countryCode: params?.country || 'US'
+            }
+        };
+
+        const paymentsClient = new google.payments.api.PaymentsClient({ environment });
+        paymentsClient.loadPaymentData(paymentDataRequest)
+            .then(function (paymentData) {
+                
+                const token = paymentData.paymentMethodData.tokenizationData.token;
+                console.log("Payment Success:", token);
+
+                 const tokenField = document.getElementById('gpay_token');
+                if (tokenField) {
+                    tokenField.value = token;
+                }
+
+
+            })
+            .catch(function (err) {
+                console.error("❌ Payment Failed:", err);
+            });
     }
 
-    function processPayment(paymentData) {
-      console.log(paymentData);
+    function maybeInitGooglePay() {
+        const selectedMethod = $('input[name="payment_method"]:checked').val();
+        if (selectedMethod === 'my_custom_gateway') {
+            renderGooglePayButton();
+        }
     }
+
+    function waitForGooglePayLibrary(callback) {
+        if (window.google && window.google.payments && window.google.payments.api) {
+            callback();
+        } else {
+            setTimeout(() => waitForGooglePayLibrary(callback), 200);
+        }
+    }
+
+    $(document).ready(function () {
+        // Load GPay script dynamically if not already loaded
+        if (!document.getElementById('gpay_script')) {
+            const script = document.createElement('script');
+            script.async = true;
+            script.id = 'gpay_script';
+            script.src = 'https://pay.google.com/gp/p/js/pay.js';
+            script.onload = () => waitForGooglePayLibrary(maybeInitGooglePay);
+            document.head.appendChild(script);
+        } else {
+            waitForGooglePayLibrary(maybeInitGooglePay);
+        }
+
+        // Handle WooCommerce checkout updates
+        $('body').on('updated_checkout payment_method_selected', function () {
+            waitForGooglePayLibrary(maybeInitGooglePay);
+        });
+    });
+})(jQuery);
