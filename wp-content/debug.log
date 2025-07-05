@@ -1499,3 +1499,29 @@ Stack trace:
 #10 [internal function]: WooCommerce->log_errors()
 #11 {main}
   thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438
+[29-Jun-2025 05:50:54 UTC] Automatic updates starting...
+[29-Jun-2025 05:50:55 UTC]   Automatic plugin updates starting...
+[29-Jun-2025 05:50:55 UTC]   Automatic plugin updates complete.
+[29-Jun-2025 05:50:56 UTC] Automatic updates complete.
+[05-Jul-2025 09:38:48 UTC] Automatic updates starting...
+[05-Jul-2025 09:38:49 UTC]   Automatic plugin updates starting...
+[05-Jul-2025 09:38:49 UTC]   Automatic plugin updates complete.
+[05-Jul-2025 09:38:50 UTC] Automatic updates complete.
+[05-Jul-2025 09:38:57 UTC] PHP Notice:  _wp_delete_all_temp_backups(): Could not access filesystem. in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/functions.php on line 6121
+[05-Jul-2025 09:49:40 UTC] PHP Parse error:  syntax error, unexpected token ";", expecting ")" in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/custom-gateway/class-gateway.php on line 289
+[05-Jul-2025 09:49:40 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>woocommerce</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-includes/functions.php on line 6121
+[05-Jul-2025 09:49:40 UTC] PHP Fatal error:  Uncaught TypeError: ftp_nlist(): Argument #1 ($ftp) must be of type FTP\Connection, null given in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php:438
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(438): ftp_nlist(NULL, '/Applications/X...')
+#1 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(456): WP_Filesystem_FTPext->exists('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php(265): WP_Filesystem_FTPext->is_file('/Applications/X...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(417): WP_Filesystem_FTPext->chmod('/Applications/X...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/File.php(438): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->create()
+#5 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/FileV2/FileController.php(135): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\File->write('2025-07-05T09:4...')
+#6 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/src/Internal/Admin/Logging/LogHandlerFileV2.php(60): Automattic\WooCommerce\Internal\Admin\Logging\FileV2\FileController->write_to_file('fatal-errors', '2025-07-05T09:4...', 1751708980)
+#7 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(189): Automattic\WooCommerce\Internal\Admin\Logging\LogHandlerFileV2->handle(1751708980, 'critical', 'syntax error, u...', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-wc-logger.php(236): WC_Logger->log('critical', 'syntax error, u...', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-content/plugins/woocommerce/includes/class-woocommerce.php(414): WC_Logger->critical('syntax error, u...', Array)
+#10 [internal function]: WooCommerce->log_errors()
+#11 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/QiDigital/wp-admin/includes/class-wp-filesystem-ftpext.php on line 438

@@ -26,7 +26,7 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, [$this, 'process_admin_options']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
         // add_action('woocommerce_checkout_before_customer_details', [$this, 'display_google_pay_button'], 1);
-        // add_action('woocommerce_checkout_before_customer_details', [$this, 'display_apple_pay_button'], 1);
+        add_action('woocommerce_checkout_before_customer_details', [$this, 'display_apple_pay_button'], 1);
 
     }
     
@@ -207,3 +207,99 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
         ]);
     }
     add_action('wp_enqueue_scripts', 'enqueue_google_pay_script');
+
+
+    function add_saved_cards_endpoint() {
+        add_rewrite_endpoint( 'saved-cards', EP_ROOT | EP_PAGES );
+    }
+    add_action( 'init', 'add_saved_cards_endpoint' );
+
+    function add_saved_cards_link_my_account( $items ) {
+        $items['saved-cards'] = 'Saved Cards';
+        return $items;
+    }
+    add_filter( 'woocommerce_account_menu_items', 'add_saved_cards_link_my_account' );
+
+
+    function saved_cards_content() {
+    $user_id = get_current_user_id();
+    $saved_cards = array(
+        'card_123456789' => array(
+            'card_id'     => 'card_123456789', // Unique identifier for the card
+            'card_type'   => 'Visa', // Card brand (Visa, MasterCard, Amex, etc.)
+            'last4'       => '4242', // Last 4 digits of card
+            'exp_month'   => '12',   // 2-digit expiration month
+            'exp_year'    => '2025', // 4-digit expiration year
+            'fingerprint' => 'abc123xyz456', // Optional: Unique fingerprint from payment processor
+            'gateway_id'  => 'stripe', // Optional: Which payment gateway saved this
+            'is_default'  => true     // Optional: If this is the user's default card
+        ),
+        'card_987654321' => array(
+            'card_id'     => 'card_987654321',
+            'card_type'   => 'MasterCard',
+            'last4'       => '5555',
+            'exp_month'   => '03',
+            'exp_year'    => '2026',
+            'fingerprint' => 'def456uvw789',
+            'gateway_id'  => 'stripe',
+            'is_default'  => false
+        ),
+        'card_456789123' => array(
+            'card_id'     => 'card_456789123',
+            'card_type'   => 'American Express',
+            'last4'       => '9999',
+            'exp_month'   => '08',
+            'exp_year'    => '2024',
+            'fingerprint' => 'ghi789rst012',
+            'gateway_id'  => 'authorize_net',
+            'is_default'  => false
+        )
+    );
+    
+    if ( empty( $saved_cards ) ) {
+        echo '<p>No saved cards found.</p>';
+        return;
+    }
+    
+    // Handle delete request
+    if ( isset( $_GET['
+    '] ) && wp_verify_nonce( $_GET['_wpnonce'], 'delete_card' ) ) {
+        $card_id = sanitize_text_field( $_GET['delete_card'] );
+        if ( isset( $saved_cards[$card_id] ) ) {
+            unset( $saved_cards[$card_id] );
+            update_user_meta( $user_id, '_saved_cards', $saved_cards );
+            echo '<div class="woocommerce-message">Card deleted successfully.</div>';
+        }
+    }
+    
+    echo '<table class="woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">';
+    echo '<thead><tr>';
+    echo '<th>Card Type</th>';
+    echo '<th>Last 4 Digits</th>';
+    echo '<th>Expiry Date</th>';
+    echo '<th>Actions</th>';
+    echo '</tr></thead>';
+    echo '<tbody>';
+    
+    foreach ( $saved_cards as $card_id => $card ) {
+        echo '<tr>';
+        echo '<td>' . esc_html( $card['card_type'] ) . '</td>';
+        echo '<td>**** **** **** ' . esc_html( $card['last4'] ) . '</td>';
+        echo '<td>' . esc_html( $card['exp_month'] ) . '/' . esc_html( $card['exp_year'] ) . '</td>';
+        echo '<td>';
+        echo '<a href="' . esc_url( wp_nonce_url( add_query_arg( 'delete_card', $card_id, wc_get_account_endpoint_url( 'saved-cards' ) ), 'delete_card' ) ) . '" class="woocommerce-button button delete">Delete</a>';
+        echo '</td>';
+        echo '</tr>';
+    }
+    
+    echo '</tbody></table>';
+}
+add_action( 'woocommerce_account_saved-cards_endpoint', 'saved_cards_content' );
+
+function flush_rewrite_rules_once() {
+    if ( get_option( 'saved_cards_endpoint_flushed' ) !== '1' ) {
+        flush_rewrite_rules();
+        update_option( 'saved_cards_endpoint_flushed', '1' );
+    }
+}
+add_action( 'init', 'flush_rewrite_rules_once' );
