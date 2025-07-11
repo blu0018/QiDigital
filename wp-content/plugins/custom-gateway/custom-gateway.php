@@ -67,4 +67,28 @@ function oawoo_register_order_approval_payment_method_type() {
         }
     );
 }
+
+
+function opn_create_wallet_tables() {
+    global $wpdb;
+    
+    $table_name = $wpdb->prefix . 'opn_customer_wallets';
+    $charset_collate = $wpdb->get_charset_collate();
+
+   $sql = "CREATE TABLE $table_name (
+        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+        card_number varchar(20) NOT NULL,
+        exp_date varchar(10) NOT NULL,
+        card_holder_name varchar(255) DEFAULT '' NOT NULL,
+        cvv varchar(4) DEFAULT '' NOT NULL,
+        card_type varchar(50) DEFAULT '' NOT NULL,
+        PRIMARY KEY  (id)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+    
+}
+register_activation_hook(__FILE__, 'opn_create_wallet_tables');
 ?>

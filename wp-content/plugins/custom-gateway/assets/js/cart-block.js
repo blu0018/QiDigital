@@ -1,8 +1,8 @@
-(function ($) {
+(function () {
     const environment = window.my_custom_google_pay_params?.environment || 'TEST';
 
-    function renderGooglePayButton() {
-        const container = document.getElementById('google_pay_btn');
+    function renderGooglePayButton(containerId = 'google_pay_cart_btn') {
+        const container = document.getElementById(containerId);
         if (!container) return;
 
         const paymentsClient = new google.payments.api.PaymentsClient({ environment });
@@ -11,7 +11,7 @@
             onClick: onGooglePaymentButtonClicked
         });
 
-        container.innerHTML = ''; // Clear previous content
+        container.innerHTML = ''; // Clear any previous content
         container.appendChild(button);
     }
 
@@ -41,36 +41,24 @@
             },
             transactionInfo: {
                 totalPriceStatus: 'FINAL',
-                totalPrice: '0.01',
+                totalPrice: '0.01', // You can replace this with actual cart total if needed
                 currencyCode: params?.currency || 'USD',
                 countryCode: params?.country || 'US'
             }
         };
 
         const paymentsClient = new google.payments.api.PaymentsClient({ environment });
+
         paymentsClient.loadPaymentData(paymentDataRequest)
             .then(function (paymentData) {
-                
                 const token = paymentData.paymentMethodData.tokenizationData.token;
-                console.log("Payment Success:", token);
+                console.log("🟢 Google Pay Success:", token);
 
-                 const tokenField = document.getElementById('gpay_token');
-                if (tokenField) {
-                    tokenField.value = token;
-                }
-
-
+                // You can send this token via AJAX or save it in a hidden input
             })
             .catch(function (err) {
-                console.error("❌ Payment Failed:", err);
+                console.error("❌ Google Pay Failed:", err);
             });
-    }
-
-    function maybeInitGooglePay() {
-        const selectedMethod = $('input[name="payment_method"]:checked').val();
-        if (selectedMethod === 'my_custom_gateway') {
-            renderGooglePayButton();
-        }
     }
 
     function waitForGooglePayLibrary(callback) {
@@ -81,23 +69,37 @@
         }
     }
 
-    $(document).ready(function () {
-        // Load GPay script dynamically if not already loaded
+    function insertCartGPayButton() {
+        const containerClass = '.wc-block-cart__payment-options'; // Or '.wc-block-cart__totals'
+        const isBlockCart = document.querySelector('.wp-block-woocommerce-cart');
+
+        if (!isBlockCart) return;
+
+        const checkAndInsert = setInterval(() => {
+            const parent = document.querySelector(containerClass);
+            if (parent && !document.getElementById('google_pay_cart_btn')) {
+                const gpayDiv = document.createElement('div');
+                gpayDiv.id = 'google_pay_cart_btn';
+                gpayDiv.style.marginTop = '15px';
+                parent.appendChild(gpayDiv);
+
+                renderGooglePayButton('google_pay_cart_btn');
+                clearInterval(checkAndInsert);
+            }
+        }, 300);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Load GPay script dynamically
         if (!document.getElementById('gpay_script')) {
             const script = document.createElement('script');
             script.async = true;
             script.id = 'gpay_script';
             script.src = 'https://pay.google.com/gp/p/js/pay.js';
-            script.onload = () => waitForGooglePayLibrary(maybeInitGooglePay);
+            script.onload = () => waitForGooglePayLibrary(insertCartGPayButton);
             document.head.appendChild(script);
         } else {
-            waitForGooglePayLibrary(maybeInitGooglePay);
+            waitForGooglePayLibrary(insertCartGPayButton);
         }
-
-        // Handle WooCommerce checkout updates
-        $('body').on('updated_checkout payment_method_selected', function () {
-            waitForGooglePayLibrary(maybeInitGooglePay);
-        });
     });
-})(jQuery);
-
+})();
