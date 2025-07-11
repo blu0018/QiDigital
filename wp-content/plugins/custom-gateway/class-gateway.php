@@ -130,7 +130,6 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
     ?>
     <p><?php esc_html_e('Pay with Google Pay below.', 'my-custom-gateway'); ?></p>
 
-    <input type="hidden" name="gpay_token" id="gpay_token" />
     <div id="google_pay_btn" style="margin-top:10px;"></div>
 
     <?php
@@ -310,14 +309,16 @@ add_action('woocommerce_proceed_to_checkout', 'my_custom_display_gpay_on_cart', 
 
 function my_custom_display_gpay_on_cart() {
     ?>
-    <div id="google_pay_cart_btn" style="margin-top:15px;">dd</div>
+    <div id="google_pay_cart_btn" style="margin-top:15px;">
+        <div id="google_pay_btn" style="margin-top:10px;"></div>
+    </div>
     <?php
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_my_custom_cart_block_js');
 
 function enqueue_my_custom_cart_block_js() {
-    if (is_cart()) {
+    if (is_cart() || is_product()) {
         wp_enqueue_script(
             'my-gpay-cart-block',
             plugin_dir_url(__FILE__) . 'assets/js/cart-block.js',
@@ -326,4 +327,15 @@ function enqueue_my_custom_cart_block_js() {
             true
         );
     }
+}
+
+add_action('woocommerce_after_add_to_cart_button', 'my_custom_add_google_pay_on_product', 10);
+
+function my_custom_add_google_pay_on_product() {
+     ?>
+    <p><?php esc_html_e('Pay with Google Pay below.', 'my-custom-gateway'); ?></p>
+
+    <div id="google_pay_btn" style="margin-top:10px;"></div>
+
+    <?php
 }

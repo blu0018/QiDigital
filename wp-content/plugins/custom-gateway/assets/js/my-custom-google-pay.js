@@ -1,7 +1,7 @@
 (function ($) {
     const environment = window.my_custom_google_pay_params?.environment || 'TEST';
 
-    function renderGooglePayButton() {
+    function renderGooglePayButton() { 
         const container = document.getElementById('google_pay_btn');
         if (!container) return;
 
@@ -68,9 +68,9 @@
 
     function maybeInitGooglePay() {
         const selectedMethod = $('input[name="payment_method"]:checked').val();
-        if (selectedMethod === 'my_custom_gateway') {
+        // if (selectedMethod === 'my_custom_gateway') {
             renderGooglePayButton();
-        }
+        // }
     }
 
     function waitForGooglePayLibrary(callback) {
@@ -83,14 +83,14 @@
 
     $(document).ready(function () {
         // Load GPay script dynamically if not already loaded
-        if (!document.getElementById('gpay_script')) {
+        if (!document.getElementById('gpay_script')) { 
             const script = document.createElement('script');
             script.async = true;
             script.id = 'gpay_script';
             script.src = 'https://pay.google.com/gp/p/js/pay.js';
             script.onload = () => waitForGooglePayLibrary(maybeInitGooglePay);
             document.head.appendChild(script);
-        } else {
+        } else { 
             waitForGooglePayLibrary(maybeInitGooglePay);
         }
 
