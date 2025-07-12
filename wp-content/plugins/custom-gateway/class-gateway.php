@@ -25,9 +25,6 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
         
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, [$this, 'process_admin_options']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
-        // add_action('woocommerce_checkout_before_customer_details', [$this, 'display_google_pay_button'], 1);
-        add_action('woocommerce_checkout_before_customer_details', [$this, 'display_apple_pay_button'], 1);
-
     }
     
     public function init_form_fields() {
@@ -131,8 +128,10 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
     <p><?php esc_html_e('Pay with Google Pay below.', 'my-custom-gateway'); ?></p>
 
     <div id="google_pay_btn" style="margin-top:10px;"></div>
-
+    
     <?php
+
+    echo $this->display_apple_pay_button();
     }
 
     public function process_payment ($order_id) {
@@ -141,7 +140,7 @@ class My_Custom_Gateway extends WC_Payment_Gateway {
 
      public function display_apple_pay_button() {
         ?>
-       <div id="apple-pay-button-container" style="margin: 15px 0; display: none;">
+        <div id="apple-pay-button-container" style="margin: 15px 0; display: none;">
         <button id="apple-pay-button" style="-webkit-appearance: -apple-pay-button; -apple-pay-button-type: buy; -apple-pay-button-style: black; height: 40px; width: 100%;"></button>
         </div>
      
@@ -312,6 +311,10 @@ function my_custom_display_gpay_on_cart() {
     <div id="google_pay_cart_btn" style="margin-top:15px;">
         <div id="google_pay_btn" style="margin-top:10px;"></div>
     </div>
+
+    <div id="apple-pay-button-container" style="margin: 15px 0; display: none;">
+        <button id="apple-pay-button" style="-webkit-appearance: -apple-pay-button; -apple-pay-button-type: buy; -apple-pay-button-style: black; height: 40px; width: 100%;"></button>
+        </div>
     <?php
 }
 
@@ -326,6 +329,13 @@ function enqueue_my_custom_cart_block_js() {
             time(), // for dev: avoids caching
             true
         );
+         wp_enqueue_script(
+            'apple-pay-block',
+            plugin_dir_url(__FILE__) . 'assets/js/apple-pay-block.js',
+            ['jquery'],
+            time(),
+            true
+        );
     }
 }
 
@@ -337,5 +347,8 @@ function my_custom_add_google_pay_on_product() {
 
     <div id="google_pay_btn" style="margin-top:10px;"></div>
 
+    <div id="apple-pay-button-container" style="margin: 15px 0; display: none;">
+        <button id="apple-pay-button" style="-webkit-appearance: -apple-pay-button; -apple-pay-button-type: buy; -apple-pay-button-style: black; height: 40px; width: 100%;"></button>
+        </div>
     <?php
 }

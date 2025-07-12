@@ -150,3 +150,138 @@
 //     });
 // }
 
+
+const settings = window.wc?.wcSettings?.getSetting('my_custom_apple_pay_data', {}) || {};
+const label = window.wp.htmlEntities.decodeEntities(settings.title || 'Apple Pay');
+const description = window.wp.htmlEntities.decodeEntities(settings.description || '');
+
+const { createElement, useState, useEffect, useRef } = window.wp.element;
+const { registerPaymentMethodExtensionCallbacks } = window.wc.wcBlocksRegistry;
+
+const ApplePayButton = ({ onClick }) => {
+    const [isAvailable, setAvailable] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        if (window.ApplePaySession?.canMakePayments?.()) {
+            setAvailable(true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (!isAvailable || !ref.current) return;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.id = 'apple-pay-button';
+        btn.style = `
+            -webkit-appearance: -apple-pay-button;
+            -apple-pay-button-type: buy;
+            -apple-pay-button-style: black;
+            height: 44px;
+            width: 100%;
+        `;
+        btn.onclick = (e) => {
+            e.preventDefault();
+            onClick();
+        };
+
+        ref.current.innerHTML = '';
+        ref.current.appendChild(btn);
+    }, [isAvailable]);
+
+    if (!isAvailable) return createElement('div', {}, 'Apple Pay not available');
+    return createElement('div', { ref, style: { marginTop: '15px' } });
+};
+
+const ApplePayContent = () => { 
+    const handleClick = () => {
+        const session = new ApplePaySession(3, {
+            countryCode: settings.country || 'US',
+            currencyCode: settings.currency || 'USD',
+            merchantCapabilities: ['supports3DS'],
+            supportedNetworks: ['visa', 'masterCard', 'amex'],
+            total: {
+                label: settings.merchantName || 'My Store',
+                amount: settings.totalPrice || '10.00'
+            }
+        });
+
+        session.onvalidatemerchant = (event) => {
+            fetch(settings.ajax_url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    action: 'wc_apple_pay_gateway',
+                    action_type: 'validate_merchant',
+                    validation_url: event.validationURL,
+                    security: settings.nonce
+                })
+            })
+            .then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    session.completeMerchantValidation(res.data);
+                } else {
+                    console.error('Merchant validation failed:', res);
+                    session.abort();
+                }
+            })
+            .catch(err => {
+                console.error('Merchant validation error:', err);
+                session.abort();
+            });
+        };
+
+        session.onpaymentauthorized = (event) => {
+            fetch(settings.ajax_url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    action: 'wc_apple_pay_gateway',
+                    action_type: 'process_payment',
+                    payment_data: JSON.stringify(event.payment),
+                    security: settings.nonce
+                })
+            })
+            .then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    session.completePayment(ApplePaySession.STATUS_SUCCESS);
+                    if (res.redirect) {
+                        window.location.href = res.redirect;
+                    }
+                } else {
+                    console.error('Payment failed:', res);
+                    session.completePayment(ApplePaySession.STATUS_FAILURE);
+                }
+            })
+            .catch(err => {
+                console.error('Payment error:', err);
+                session.completePayment(ApplePaySession.STATUS_FAILURE);
+            });
+        };
+
+        session.oncancel = () => {
+            console.log('Apple Pay session cancelled.');
+        };
+
+        session.begin();
+    };
+
+    return createElement('div', {}, [
+        createElement('div', {}, label),
+        createElement(ApplePayButton, { onClick: handleClick }),
+        createElement('div', {}, description)
+    ]);
+};
+
+registerPaymentMethodExtensionCallbacks('my_custom_apple_pay', () => ({
+    content: () => createElement(ApplePayContent),
+    edit: () => createElement(ApplePayContent),
+    canMakePayment: () => !!window.ApplePaySession?.canMakePayments?.(),
+    ariaLabel: label,
+    supports: {
+        features: settings.supports || ['products']
+    }
+}));

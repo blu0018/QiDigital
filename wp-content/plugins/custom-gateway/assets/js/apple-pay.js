@@ -152,5 +152,7 @@ jQuery(function($) {
         } else {
             $(document.body).on('updated_checkout', initApplePay);
         }
+
+         initApplePay();
     });
 });
